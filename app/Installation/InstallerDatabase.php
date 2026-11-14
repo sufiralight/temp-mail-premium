@@ -26,6 +26,12 @@ class InstallerDatabase
         $timeout = ini_set('mysqlnd.net_read_timeout', '3');
         try {
             $connection = $this->connect($settings);
+            $version = (string) $connection->query('SELECT VERSION()')->fetchColumn();
+            $isMariaDb = stripos($version, 'MariaDB') !== false;
+            if ($isMariaDb !== ($settings['engine'] === 'mariadb')) {
+                return 'The server reports a different engine. Select the matching engine and test again.';
+            }
+
             if ($connection->query('SELECT DATABASE()')->fetchColumn() !== $settings['database']) {
                 return 'The selected database could not be verified.';
             }

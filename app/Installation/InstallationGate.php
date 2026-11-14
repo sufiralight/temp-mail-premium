@@ -25,7 +25,12 @@ final class InstallationGate
                 && (PHP_SAPI === 'cli-server' || in_array($request->server('SERVER_ADDR'), $loopback, true))
                 && preg_match('/\A(?:localhost|127\.0\.0\.1)(?::\d{1,5})?\z/', $host), 404);
 
-            return ['host' => '127.0.0.1', 'port' => null, 'scope' => hash('sha256', $contents)];
+            $databaseHost = $gate['database_host'] ?? '127.0.0.1';
+            $port = $gate['database_port'] ?? null;
+            abort_unless(is_string($databaseHost) && filter_var($databaseHost, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME)
+                && ($port === null || (is_int($port) && $port >= 1 && $port <= 65535)), 404);
+
+            return ['host' => strtolower($databaseHost), 'port' => $port, 'scope' => hash('sha256', $contents), 'local' => true];
         }
 
         $domain = $gate['host'] ?? null;
@@ -41,6 +46,6 @@ final class InstallationGate
             && is_string($databaseHost) && filter_var($databaseHost, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME)
             && is_int($port) && $port >= 1 && $port <= 65535, 404);
 
-        return ['host' => strtolower($databaseHost), 'port' => $port, 'scope' => hash('sha256', $contents)];
+        return ['host' => strtolower($databaseHost), 'port' => $port, 'scope' => hash('sha256', $contents), 'local' => false];
     }
 }

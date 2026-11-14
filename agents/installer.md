@@ -7,3 +7,5 @@ Require the private deployment gate on every installer request. Keep the direct 
 Finalization must recheck the verified lease and use the same exclusive lock. Preserve existing configuration, reconcile partial writes, record durable completion, and retire temporary state. Missing .env requires operator-controlled recovery when prior installation evidence exists or state is uncertain.
 
 The authorized installer records the first Super Admin's initial email as verified during account creation. Public registration and later email changes use signed email verification.
+
+Keep the web selector limited to verified engines. The editable host and port must match the deployment gate. Reuse x-appearance through the installer layout.
