@@ -12,11 +12,11 @@
     @endif
 </head>
 <body class="min-h-screen bg-zinc-100 text-zinc-950 dark:bg-zinc-900 dark:text-zinc-100">
-    <header class="mx-auto flex max-w-6xl justify-end px-5 py-4">
+    <header class="mx-auto flex max-w-6xl justify-end px-4 py-2">
         <x-appearance />
     </header>
-    <main class="mx-auto max-w-xl px-5 py-12 sm:py-20">
-        <h1 class="mb-6 text-3xl font-semibold tracking-tight">{{ $title }}</h1>
+    <main class="mx-auto max-w-xl px-4 pt-3 pb-8 sm:pt-5">
+        <h1 class="mb-2 text-3xl font-semibold tracking-tight">{{ $title }}</h1>
         {{ $slot }}
     </main>
 </body>

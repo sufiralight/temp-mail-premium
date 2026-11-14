@@ -1,5 +1,7 @@
 # Blade components
 
+The x-appearance component uses a native disclosure with keyboard-operable controls. The active mode stays in sync with the shared browser preference.
+
 Use x-ui.password-field for all password fields. Supply name and label. Override id, autocomplete and required as needed. The component never renders a value attribute.
 
 The current authentication screens use x-auth-layout, x-auth-field and x-appearance.

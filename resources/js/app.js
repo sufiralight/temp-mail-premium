@@ -9,7 +9,13 @@ function apply() {
     root.classList.toggle('dark', dark);
     root.dataset.appearance = mode;
     document.querySelectorAll('[data-appearance-mode]').forEach(button => {
-        button.setAttribute('aria-pressed', String(button.dataset.appearanceMode === mode));
+        const selected = button.dataset.appearanceMode === mode;
+        button.setAttribute('aria-pressed', String(selected));
+        button.querySelector('[data-appearance-check]').toggleAttribute('hidden', !selected);
+        if (selected) {
+            const current = button.closest('[data-appearance-dropdown]').querySelector('[data-appearance-current]');
+            current.replaceChildren(button.firstElementChild.cloneNode(true), button.querySelector('span').cloneNode(true));
+        }
     });
 }
 
@@ -18,6 +24,22 @@ document.querySelectorAll('[data-appearance-mode]').forEach(button => {
         mode = button.dataset.appearanceMode;
         try { localStorage.setItem(key, mode); } catch {}
         apply();
+        const dropdown = button.closest('[data-appearance-dropdown]');
+        dropdown.open = false;
+        dropdown.querySelector('summary').focus();
+    });
+});
+
+document.querySelectorAll('[data-appearance-dropdown]').forEach(dropdown => {
+    dropdown.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && dropdown.open) {
+            event.preventDefault();
+            dropdown.open = false;
+            dropdown.querySelector('summary').focus();
+        }
+    });
+    document.addEventListener('click', event => {
+        if (!dropdown.contains(event.target)) dropdown.open = false;
     });
 });
 

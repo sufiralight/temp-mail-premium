@@ -1,5 +1,7 @@
 # Frontend
 
+The shared appearance dropdown shows the active icon and label. Close it on selection, Escape, or outside click. Return focus to the trigger after selection or Escape.
+
 Use x-ui.password-field for password entry and confirmation. Its Eye and Eye-off buttons share one script, preserve the entered value, and keep keyboard focus.
 
 Reuse the appearance selector and the early external initialization script for any page that offers appearance controls.

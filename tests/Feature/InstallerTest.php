@@ -79,6 +79,7 @@ final class InstallerTest extends TestCase
             ->assertSee('data-password-eye-off', false)
             ->assertSee('value="pgsql" disabled', false)
             ->assertSee('value="sqlite" disabled', false)
+            ->assertSee('data-appearance-dropdown', false)
             ->assertSee('data-appearance-mode="light"', false)
             ->assertSee('data-appearance-mode="dark"', false)
             ->assertSee('data-appearance-mode="system"', false);

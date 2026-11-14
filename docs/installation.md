@@ -1,5 +1,7 @@
 # Installation
 
+The compact installer layout keeps controls at least 44 pixels high and allows the document to scroll when space is limited.
+
 ## Current workflow
 
 The web installer in this checkout provides **Database Configuration** and **System Requirements**. A successful connection test opens the requirements page. The requirements page displays runtime checks and links back to database configuration. Returning to configuration or submitting a new test clears the previous verification. Verification expires after 15 minutes and is tied to the gate configuration.

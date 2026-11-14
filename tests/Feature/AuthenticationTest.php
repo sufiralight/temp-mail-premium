@@ -17,6 +17,7 @@ final class AuthenticationTest extends TestCase
 
         foreach (['/login', '/register', '/forgot-password', '/reset-password/'.str_repeat('a', 64)] as $path) {
             $this->get($path)->assertOk()->assertSee('dir="rtl"', false)
+                ->assertSee('data-appearance-dropdown', false)
                 ->assertSee('data-appearance-mode="light"', false)
                 ->assertSee('data-appearance-mode="dark"', false)
                 ->assertSee('data-appearance-mode="system"', false);
