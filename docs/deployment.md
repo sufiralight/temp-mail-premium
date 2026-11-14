@@ -1,5 +1,7 @@
 # Deployment
 
+Build Vite assets before deploying Install 4.1. PDO MySQL is required for the MySQL and MariaDB selector choices. PostgreSQL and SQLite remain disabled for web installation.
+
 ## Local development
 
 Use PHP 8.5, Composer, the PDO driver for the [selected database](database.md), and PDO SQLite for the default test configuration. Use a Node version supported by the locked Vite package. The current [CI workflow](../.github/workflows/checks.yml) selects Node 24. Run composer setup. When the local APP_KEY is empty, run php artisan key:generate. Keep existing keys. Start the development servers with composer dev or run php artisan serve and npm run dev separately. On Windows use npm.cmd if PowerShell restricts script execution.

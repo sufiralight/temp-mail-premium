@@ -1,5 +1,7 @@
 # Security
 
+Never populate a password input from flashed data. Keep connection testing read-only and restrict it to the private gate authorized endpoint.
+
 Reset email is disabled for non-delivery transports. Keep responses generic across account existence and keep reset tokens out of flashed input.
 
 Authorize administrative and ownership-sensitive actions on the server. Use deny-by-default policies, scoped queries, validated input, and CSRF on browser writes. Escape output with Blade, treat inbound HTML as untrusted, and require a vetted sanitization path before rendering rich content. Rate-limit sensitive actions and retain production-safe errors.

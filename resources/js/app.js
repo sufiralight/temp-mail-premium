@@ -36,8 +36,9 @@ document.querySelectorAll('[data-password-toggle]').forEach(button => {
         const input = document.getElementById(button.getAttribute('aria-controls'));
         const visible = input.type === 'password';
         input.type = visible ? 'text' : 'password';
-        button.setAttribute('aria-pressed', String(visible));
-        button.textContent = visible ? button.dataset.hide : button.dataset.show;
+        button.setAttribute('aria-label', visible ? button.dataset.hide : button.dataset.show);
+        button.querySelector('[data-password-eye]').toggleAttribute('hidden', visible);
+        button.querySelector('[data-password-eye-off]').toggleAttribute('hidden', !visible);
     });
 });
 

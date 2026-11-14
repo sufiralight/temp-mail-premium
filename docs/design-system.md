@@ -1,5 +1,7 @@
 # Design system
 
+Password visibility uses the Eye and Eye-off icons and a 44-pixel button positioned at the inline end of the input for LTR and RTL.
+
 The shared authentication appearance control uses labeled Sun, Moon and Monitor buttons. Explicit appearance choices persist in localStorage and System follows the OS.
 
 Pure Zinc Monochrome Premium SaaS uses [app.css](../resources/css/app.css) as the token source.

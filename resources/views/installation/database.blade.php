@@ -18,18 +18,19 @@
             <p id="engine-help" class="mt-1 text-sm">MySQL and MariaDB require PDO MySQL. Use the host and port approved by your operator.</p>
             @error('engine')<p role="alert" class="mt-1 text-sm">{{ $message }}</p>@enderror
         </div>
-        @foreach (['host' => 'Database host', 'port' => 'Database port', 'database' => 'Database name', 'username' => 'Database username', 'password' => 'Database password'] as $field => $label)
+        @foreach (['host' => 'Database host', 'port' => 'Database port', 'database' => 'Database name', 'username' => 'Database username'] as $field => $label)
             <div>
                 <label class="mb-1 block text-sm font-medium" for="db-{{ $field }}">{{ $label }}</label>
-                <input id="db-{{ $field }}" name="{{ $field }}" type="{{ $field === 'password' ? 'password' : ($field === 'port' ? 'number' : 'text') }}"
-                    @if ($field !== 'password') value="{{ old($field, $field === 'host' ? $access['host'] : ($field === 'port' ? ($access['port'] ?? 3306) : '')) }}" required @endif
+                <input id="db-{{ $field }}" name="{{ $field }}" type="{{ $field === 'port' ? 'number' : 'text' }}"
+                    value="{{ old($field, $field === 'host' ? $access['host'] : ($field === 'port' ? ($access['port'] ?? 3306) : '')) }}" required
                     @if ($field === 'port') min="1" max="65535" @endif
                     @error($field) aria-invalid="true" aria-describedby="error-{{ $field }}" @enderror
-                    autocomplete="{{ $field === 'password' ? 'new-password' : 'off' }}"
+                    autocomplete="off"
                     class="w-full rounded-md border border-zinc-400 bg-transparent px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2">
                 @error($field)<p id="error-{{ $field }}" class="mt-1 text-sm" role="alert">{{ $message }}</p>@enderror
             </div>
         @endforeach
+        <x-ui.password-field id="db-password" name="password" label="Database password" autocomplete="off" :required="false" />
         <button type="submit" data-pending="Testing connection…" class="rounded-md bg-zinc-900 px-4 py-2 font-medium text-white dark:bg-zinc-100 dark:text-zinc-900">Test Connection</button>
     </form>
 </x-installer-layout>

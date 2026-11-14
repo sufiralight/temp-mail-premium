@@ -1,5 +1,7 @@
 # Testing
 
+Cover password masking, reveal and conceal, keyboard activation, preserved input and shared appearance behavior with installer and authentication checks.
+
 Authentication tests run on isolated SQLite and cover rendering, privilege-field rejection, login, logout and reset expiry and reuse.
 
 Add focused tests for changed behavior and regressions. Use PHPUnit unit tests for isolated rules and Laravel feature tests for routes, validation, authorization, and persistence. Use isolated test data and factories. Prove negative paths at the actual action boundary.

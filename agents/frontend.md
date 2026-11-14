@@ -1,5 +1,7 @@
 # Frontend
 
+Use x-ui.password-field for password entry and confirmation. Its Eye and Eye-off buttons share one script, preserve the entered value, and keep keyboard focus.
+
 Reuse the appearance selector and the early external initialization script for any page that offers appearance controls.
 
 Render pages and forms in Blade. Use native navigation and form submission where possible. Add Alpine for small interactive behaviors with explicit keyboard and focus handling. Preserve readable content and usable core flows if JavaScript fails. Use semantic HTML, mobile-first layouts, and test reflow before widening containers.

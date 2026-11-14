@@ -20,6 +20,9 @@ final class AuthenticationTest extends TestCase
                 ->assertSee('data-appearance-mode="light"', false)
                 ->assertSee('data-appearance-mode="dark"', false)
                 ->assertSee('data-appearance-mode="system"', false);
+            if ($path !== '/forgot-password') {
+                $this->get($path)->assertSee('data-password-toggle', false)->assertSee('data-password-eye-off', false);
+            }
         }
     }
 

@@ -1,5 +1,7 @@
 # Temp Mail SaaS
 
+Install 4.1 shares appearance controls and password visibility with authentication. First Super Admin and Installation Complete remain pending in this checkout.
+
 Public authentication is implemented in this checkout. Installer finalization, role hierarchy and localization registry integration remain pending.
 
 > **Current checkout:** Database Configuration and System Requirements are implemented in part. Founder creation, authentication, administration and other module statuses below are reference material for this checkout.

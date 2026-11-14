@@ -24,11 +24,11 @@
         @endif
         <x-auth-field name="email" :label="__('Email address')" type="email" autocomplete="email" :value="$screen === 'reset' ? (is_string(request()->query('email')) ? request()->query('email') : null) : null" />
         @unless ($screen === 'forgot')
-            <x-auth-field name="password" :label="__('Password')" type="password" :autocomplete="$screen === 'login' ? 'current-password' : 'new-password'" />
+            <x-ui.password-field name="password" :label="__('Password')" :autocomplete="$screen === 'login' ? 'current-password' : 'new-password'" />
         @endunless
         @if (in_array($screen, ['register', 'reset'], true))
             <p class="text-sm text-zinc-600 dark:text-zinc-300">{{ __('Use at least 12 characters and at most 72 bytes.') }}</p>
-            <x-auth-field name="password_confirmation" :label="__('Confirm password')" type="password" autocomplete="new-password" />
+            <x-ui.password-field name="password_confirmation" :label="__('Confirm password')" autocomplete="new-password" />
         @endif
         @if ($screen === 'login')
             <div class="flex flex-wrap items-center justify-between gap-3 text-sm">

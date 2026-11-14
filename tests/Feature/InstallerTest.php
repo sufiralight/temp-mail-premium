@@ -74,6 +74,9 @@ final class InstallerTest extends TestCase
 
         $this->get('http://localhost:8000/install')->assertOk()
             ->assertSee('name="engine"', false)
+            ->assertSee('id="db-password" name="password" type="password"', false)
+            ->assertSee('type="button" hidden data-password-toggle', false)
+            ->assertSee('data-password-eye-off', false)
             ->assertSee('value="pgsql" disabled', false)
             ->assertSee('value="sqlite" disabled', false)
             ->assertSee('data-appearance-mode="light"', false)

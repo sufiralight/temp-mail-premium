@@ -1,5 +1,7 @@
 # Installation
 
+Database Configuration is followed by System Requirements in the current checkout. Both share the appearance selector. The database password uses the shared password component and is masked initially.
+
 > **Current checkout:** Database Configuration tests a MySQL or MariaDB connection without running migrations. System Requirements displays runtime checks. Configuration persistence, schema initialization and founder creation described below remain pending.
 
 The installer verifies the database at GET and POST /install, then creates the first Super Admin at GET and POST /install/admin. Both steps require the same private operator gate. The verified database belongs to one encrypted installer session. Successful finalization redirects through /setup-complete to the named /login route.

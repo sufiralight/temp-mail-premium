@@ -1,5 +1,7 @@
 # Workspace authorization
 
+The Install 4.1 password visibility change affects presentation only. Founder provisioning and protection remain pending in this checkout.
+
 Current checkout status. Public registration accepts identity fields only and creates ordinary accounts. The role hierarchy and protected founder behavior below describe reference scope.
 
 WorkspaceRole resolves the effective role from the is_super_admin flag and the stored role. Laravel Gates enforce the permissions below.

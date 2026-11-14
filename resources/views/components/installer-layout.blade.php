@@ -1,6 +1,7 @@
 @props(['title'])
 <!doctype html>
-<html lang="en">
+@php($locale = str_replace('_', '-', app()->getLocale()))
+<html lang="{{ $locale }}" dir="{{ in_array(strtok($locale, '-'), ['ar', 'fa', 'he', 'ur', 'ps', 'yi'], true) ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
