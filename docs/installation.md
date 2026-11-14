@@ -55,3 +55,5 @@ Both installer screens reuse the global Light, Dark and System control with Sun,
 ## Verification
 
 Run `php artisan test --filter=InstallerTest` for loopback access, forwarding-header rejection, engine choices, verification invalidation, safe error handling and shared controls. Connection outcomes in the feature suite are mocked. Live MySQL and MariaDB tests and browser interaction checks remain open.
+
+Product identification checks server version and distribution metadata plus the Aria engine inventory. Both products use PDO MySQL. Unknown products and confirmed selection mismatches require operator review. The verification probe is read-only.

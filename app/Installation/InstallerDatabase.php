@@ -26,10 +26,15 @@ class InstallerDatabase
         $timeout = ini_set('mysqlnd.net_read_timeout', '3');
         try {
             $connection = $this->connect($settings);
-            $version = (string) $connection->query('SELECT VERSION()')->fetchColumn();
-            $isMariaDb = stripos($version, 'MariaDB') !== false;
-            if ($isMariaDb !== ($settings['engine'] === 'mariadb')) {
-                return 'The server reports a different engine. Select the matching engine and test again.';
+            $product = $this->serverProduct($connection);
+            if ($product === null) {
+                return 'The server product could not be verified. Ask your hosting provider whether this endpoint runs MySQL or MariaDB.';
+            }
+
+            if ($product !== $settings['engine']) {
+                return $product === 'mariadb'
+                    ? 'This endpoint runs MariaDB. Select MariaDB to test this connection.'
+                    : 'This endpoint runs MySQL. Select MySQL to test this connection.';
             }
 
             if ($connection->query('SELECT DATABASE()')->fetchColumn() !== $settings['database']) {
@@ -56,5 +61,18 @@ class InstallerDatabase
                 ini_set('mysqlnd.net_read_timeout', $timeout);
             }
         }
+    }
+
+    private function serverProduct(PDO $connection): ?string
+    {
+        $server = $connection->query('SELECT VERSION(), @@version_comment')->fetch(PDO::FETCH_NUM);
+        $aria = $connection->query("SELECT ENGINE FROM information_schema.ENGINES WHERE ENGINE = 'Aria'")->fetchColumn();
+        $identity = implode(' ', $server ?: []);
+
+        if ($aria !== false || stripos($identity, 'MariaDB') !== false) {
+            return 'mariadb';
+        }
+
+        return preg_match('/\b(?:MySQL|Percona Server)\b/i', $identity) === 1 ? 'mysql' : null;
     }
 }

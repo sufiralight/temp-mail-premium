@@ -5,3 +5,5 @@ Follow the current flow and planned milestones in [Installation](../docs/install
 Require the private operator gate on every installer request. Preserve direct peer, raw Host, HTTPS, forwarded-header rejection and pinned endpoint checks. Allow localhost and 127.0.0.1 for direct loopback development. Keep connection tests bounded and read-only. Reject nonempty databases and engine mismatches, clear earlier verification before a retest, and never flash or log passwords.
 
 Use x-appearance in the installer layout and x-ui.password-field for all password entry. For future finalization, preserve existing database data and application keys, verify the schema under an exclusive lock, and record the founder and completion durably. Keep configuration recovery under operator control.
+
+Identify server products using server metadata and the MariaDB Aria engine capability. PDO MySQL is shared transport. Preserve the selected engine and fail safely when product identity is unclear.
