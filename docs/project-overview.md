@@ -1,5 +1,7 @@
 # Temp Mail SaaS
 
+Public authentication is implemented in this checkout. Installer finalization, role hierarchy and localization registry integration remain pending.
+
 > **Current checkout:** Database Configuration and System Requirements are implemented in part. Founder creation, authentication, administration and other module statuses below are reference material for this checkout.
 
 Temp Mail SaaS implements the installer, account workspace and administration foundation. Temporary inbox delivery and retention are planned.

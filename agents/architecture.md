@@ -1,5 +1,7 @@
 # Architecture
 
+The current checkout uses the Laravel web guard, User model and password broker for public authentication.
+
 Keep one Laravel deployable and one application database. Introduce modules inside existing Laravel directories when the first real use case lands. Use feature-specific namespaces, Blade view directories, named route groups, policies, and services as needed. Preserve public routes and existing data during changes. Document any required transition in the same change.
 
 Use the ownership map in [Architecture](../docs/architecture.md). A module owns its rules, write operations, and schema. Cross-module calls go through the owning module's application operation or an explicitly documented read contract. Keep dependency direction visible and break cycles before merging. Use shared infrastructure only when multiple concrete callers need it.

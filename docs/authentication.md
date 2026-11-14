@@ -1,5 +1,7 @@
 # Authentication
 
+Current checkout coverage includes public login, registration, logout and the Laravel password reset broker. The account screen is protected by auth and auth.session. Explicit theme preferences are stored in the browser. Live outbound mail has not been verified.
+
 Accounts are available after successful installation. The durable installer marker, active private environment file and application key are checked before the web session starts. The installer redirects through /setup-complete to the named login route with a success message. The administrator signs in using the same form as other members.
 
 | Flow | Routes | Behavior |

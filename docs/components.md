@@ -1,5 +1,7 @@
 # Blade components
 
+The current authentication screens use x-auth-layout, x-auth-field and x-appearance.
+
 The implemented catalog lives in [resources/views/components/ui](../resources/views/components/ui). Pass trusted URLs to link and image props. Blade escapes string props. Supply slots as Blade markup and use native attributes for form behavior.
 
 | Component | API and accessibility contract |
