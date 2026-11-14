@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminConsoleController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\InstallerController;
 use App\Installation\InstallationGate;
@@ -40,4 +41,9 @@ Route::middleware('guest')->group(function (): void {
 Route::middleware(['auth', 'auth.session'])->group(function (): void {
     Route::view('/account', 'auth.account')->name('dashboard');
     Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+});
+
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'auth.session', 'can:admin.access'])->group(function (): void {
+    Route::get('/', [AdminConsoleController::class, 'dashboard'])->name('overview');
+    Route::get('/users', [AdminConsoleController::class, 'users'])->name('users');
 });

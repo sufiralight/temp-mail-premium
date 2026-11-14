@@ -1,5 +1,7 @@
 # Temp Mail SaaS
 
+Keep Admin Console links and route access aligned with the Laravel admin.access Gate. See [Workspace authorization](docs/authorization.md).
+
 Use the shared appearance dropdown and keep the default installer form within the desktop viewport. Allow natural scrolling at narrow widths and zoom.
 
 All applicable password fields must use x-ui.password-field. Layouts offering appearance selection must reuse x-appearance and the shared theme initialization.

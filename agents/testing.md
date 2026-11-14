@@ -1,5 +1,7 @@
 # Testing
 
+Exercise direct console access, role rejection, filtered pagination, and safe schema warnings in AdminConsoleTest.
+
 Measure installer document size at 1440 × 900 and check natural reflow at 390 px and 320 px. Exercise theme selection and Escape with keyboard input.
 
 Cover password masking, reveal and conceal, keyboard activation, preserved input and shared appearance behavior with installer and authentication checks.

@@ -1,5 +1,7 @@
 # Security
 
+Apply the admin.access Gate at the route boundary. Keep lifecycle writes unavailable until founder identity and last-active-Super-Admin protections are implemented.
+
 Never populate a password input from flashed data. Keep connection testing read-only and restrict it to the private gate authorized endpoint.
 
 Reset email is disabled for non-delivery transports. Keep responses generic across account existence and keep reset tokens out of flashed input.

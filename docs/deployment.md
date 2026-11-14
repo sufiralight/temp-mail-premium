@@ -1,5 +1,7 @@
 # Deployment
 
+Apply the additive users.role migration during a controlled release before opening the Admin Console. It assigns Member by default. A 503 reaching the console indicates a schema or database-read issue, while role rejection returns 403. Review database permissions and migration status privately.
+
 Build Vite assets before deploying Install 4.1. PDO MySQL is required for the MySQL and MariaDB selector choices. PostgreSQL and SQLite remain disabled for web installation.
 
 ## Local development

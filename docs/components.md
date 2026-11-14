@@ -1,5 +1,7 @@
 # Blade components
 
+x-admin-layout provides the console heading, workspace navigation, account menu and shared x-appearance.
+
 The x-appearance component uses a native disclosure with keyboard-operable controls. The active mode stays in sync with the shared browser preference.
 
 Use x-ui.password-field for all password fields. Supply name and label. Override id, autocomplete and required as needed. The component never renders a value attribute.

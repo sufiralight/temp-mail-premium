@@ -1,5 +1,7 @@
 # Design system
 
+The console uses a shared topbar, collapsible workspace navigation and logical borders for right-to-left layouts.
+
 The appearance dropdown displays the active icon and label, a chevron, and a checkmark for the selected option.
 
 Password visibility uses the Eye and Eye-off icons and a 44-pixel button positioned at the inline end of the input for LTR and RTL.

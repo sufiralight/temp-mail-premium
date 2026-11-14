@@ -1,5 +1,7 @@
 # Testing
 
+AdminConsoleTest covers the access Gate, active navigation, appearance, filtering, pagination and missing-schema guidance using SQLite in memory.
+
 For layout QA, measure actual overflow at 1440 × 900, 1366 × 768, 390 × 844 and 320 px width. Include enlarged text and RTL.
 
 Installer and authentication feature tests exercise the shared password field markup. Asset build and Git whitespace checks are part of the release gate.

@@ -1,11 +1,13 @@
 # Temp Mail SaaS
 
+Admin Console Overview and read-only Users are implemented. The remaining administration modules are reference designs.
+
 | Area | Status in this checkout |
 | --- | --- |
 | Install 4.1 | Database Configuration and System Requirements implemented. Web finalization, founder provisioning and completion handoff pending. |
 | Authentication | Login, registration, logout and password reset implemented. Live mail delivery unverified. |
 | Shared appearance and password input | Implemented across installer and authentication screens. |
-| Administration, branding, media, localization and typography | Reference designs. Their module implementations are absent from this checkout. |
+| Branding, media, localization and typography | Reference designs. Their module implementations are absent from this checkout. |
 | Core Temp Mail | Planned. |
 
 See [Installation](installation.md), [Authentication](authentication.md), [Deployment](deployment.md) and [Testing](testing.md) for current workflows and verification.

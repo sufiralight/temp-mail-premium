@@ -35,7 +35,7 @@ final class AuthenticationTest extends TestCase
         ])->assertRedirect('/login');
 
         $user = User::where('email', 'member@example.test')->sole();
-        $this->assertArrayNotHasKey('role', $user->getAttributes());
+        $this->assertSame('member', $user->role);
         $this->assertArrayNotHasKey('is_super_admin', $user->getAttributes());
         $this->post('/login', ['email' => $user->email, 'password' => 'test-password-123'])->assertRedirect('/account');
         $this->assertAuthenticatedAs($user);

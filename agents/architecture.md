@@ -1,5 +1,7 @@
 # Architecture
 
+The Admin Console has one shared layout and a centralized list of implemented routes. Use database-backed aggregate metrics and paginate account rows.
+
 Keep database engine selection separate from the gate-authorized host and port. The current web installer tests MySQL and MariaDB through PDO MySQL.
 
 The current checkout uses the Laravel web guard, User model and password broker for public authentication.
