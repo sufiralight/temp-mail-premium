@@ -10,8 +10,8 @@
             <select id="db-engine" name="engine" required aria-describedby="engine-help"
                 @error('engine') aria-invalid="true" @enderror
                 class="min-h-11 w-full rounded-md border border-zinc-400 bg-white px-3 py-2 focus-visible:outline-2 dark:bg-zinc-800">
-                <option value="mysql" @selected(old('engine', 'mysql') === 'mysql')>MySQL</option>
-                <option value="mariadb" @selected(old('engine') === 'mariadb')>MariaDB</option>
+                <option value="mariadb" @selected(old('engine', 'mariadb') === 'mariadb')>MariaDB</option>
+                <option value="mysql" @selected(old('engine') === 'mysql')>MySQL</option>
                 <option value="pgsql" disabled>PostgreSQL — unavailable in this installer</option>
                 <option value="sqlite" disabled>SQLite — unavailable in this installer</option>
             </select>

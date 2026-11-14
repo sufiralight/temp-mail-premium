@@ -34,7 +34,7 @@ Use direct HTTPS and a dedicated operator IP exposed as the raw network peer. Th
 
 ## Verify the database
 
-Choose **MySQL** or **MariaDB** and provide the approved database hostname, port, database name, username and password. Host and port are editable. The initial port is 3306 unless the gate supplies another. Both engines require PDO MySQL. PostgreSQL and SQLite appear as disabled choices pending installer verification.
+**MariaDB** appears first and is selected by default. Choose **MySQL** if the server runs MySQL. The form preserves your selection after a validation or connection error. Provide the approved database hostname, port, database name, username and password. Host and port are editable. The initial port is 3306 unless the gate supplies another. Both engines require PDO MySQL. PostgreSQL and SQLite appear as disabled choices pending installer verification.
 
 **Test Connection** uses the selected endpoint and checks the server-reported engine, selected database and absence of tables or views. It uses bounded PDO connection settings and runs read-only checks. Failures give a safe reason and retain non-sensitive form values for retry. The password is never flashed or populated into the form.
 

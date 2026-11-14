@@ -1,6 +1,6 @@
 # Installer
 
-Follow the current flow and planned milestones in [Installation](../docs/installation.md). Keep Database Configuration first. Treat Database Engine and Database Host as separate inputs. MySQL and MariaDB use PDO MySQL with editable host, port, database name, username and password. Keep PostgreSQL and SQLite disabled until their full installer paths are verified.
+Follow the current flow and planned milestones in [Installation](../docs/installation.md). Keep Database Configuration first. List MariaDB first and select it by default. Preserve the submitted engine after an error. Treat Database Engine and Database Host as separate inputs. MySQL and MariaDB use PDO MySQL with editable host, port, database name, username and password. Keep PostgreSQL and SQLite disabled until their full installer paths are verified.
 
 Require the private operator gate on every installer request. Preserve direct peer, raw Host, HTTPS, forwarded-header rejection and pinned endpoint checks. Allow localhost and 127.0.0.1 for direct loopback development. Keep connection tests bounded and read-only. Reject nonempty databases and engine mismatches, clear earlier verification before a retest, and never flash or log passwords.
 

@@ -74,6 +74,7 @@ final class InstallerTest extends TestCase
 
         $this->get('http://localhost:8000/install')->assertOk()
             ->assertSee('name="engine"', false)
+            ->assertSeeInOrder(['value="mariadb" selected', 'value="mysql"'], false)
             ->assertSee('id="db-password" name="password" type="password"', false)
             ->assertSee('type="button" hidden data-password-toggle', false)
             ->assertSee('data-password-eye-off', false)
