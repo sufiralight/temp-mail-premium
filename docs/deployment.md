@@ -4,7 +4,7 @@ Build Vite assets before deploying Install 4.1. PDO MySQL is required for the My
 
 ## Local development
 
-Use PHP 8.5, Composer, the PDO driver for the [selected database](database.md), and PDO SQLite for the default test configuration. Use a Node version supported by the locked Vite package. The current [CI workflow](../.github/workflows/checks.yml) selects Node 24. Run composer setup. When the local APP_KEY is empty, run php artisan key:generate. Keep existing keys. Start the development servers with composer dev or run php artisan serve and npm run dev separately. On Windows use npm.cmd if PowerShell restricts script execution.
+Use PHP 8.5, Composer, the PDO driver for the [selected database](database.md), and PDO SQLite for the default test configuration. Use a Node version supported by the locked Vite package. Run composer setup. When the local APP_KEY is empty, run php artisan key:generate. Keep existing keys. Start the development servers with composer dev or run php artisan serve and npm run dev separately. On Windows use npm.cmd if PowerShell restricts script execution.
 
 Follow [Database](database.md) when configuring local database access. The initial welcome and health routes can start before a schema exists. See [Testing](testing.md) before publishing changes.
 
@@ -20,11 +20,11 @@ A File Manager upload can deploy prepared dependencies and assets without a prod
 
 ## Releases, backups and troubleshooting
 
-Use the PHP 8.5 target with Composer platform requirements, the selected PDO extension and Fileinfo. GD with the relevant raster codecs is required for media uploads. SQL Server additionally needs its compatible ODBC runtime. Follow the [installation gate procedure](installation.md) on a new deployment and use the verified owner session to create the first Super Admin.
+Use the PHP 8.5 target with Composer platform requirements, the selected PDO extension and Fileinfo. GD with the relevant raster codecs is required for media uploads. SQL Server additionally needs its compatible ODBC runtime. Follow the [installation gate procedure](installation.md) to verify a database and review runtime requirements. Web finalization and founder provisioning remain pending.
 
 Back up the database, private media, installer completion marker, SQLite file when applicable, and the original environment and application key before replacing a release. Preserve these files across deployments. Verify a restore on an isolated host. Roll back code and assets together and restore the matching schema from backup when a migration cannot safely be reversed.
 
-Confirm the target database connection and a recoverable backup. Review migrate:status and the release scope, then apply only approved migrations through a controlled terminal or through the hosting operator. Preserve existing records and avoid destructive database resets. The web installer handles fresh schema setup without shell access. Check migration status before opening traffic. After changing configuration, clear the configuration cache through the release tooling or have the host remove the generated bootstrap/cache/config.php file. Keep public/hot out of the release. A missing manifest requires redeploying the complete public/build directory from the same release.
+Confirm the target database connection and a recoverable backup. Review migrate:status and the release scope, then apply only approved migrations through a controlled terminal or through the hosting operator. Preserve existing records and avoid destructive database resets. The current web installer stops at requirements checks. Apply schema changes through the controlled release procedure. Check migration status before opening traffic. After changing configuration, clear the configuration cache through the release tooling or have the host remove the generated bootstrap/cache/config.php file. Keep public/hot out of the release. A missing manifest requires redeploying the complete public/build directory from the same release.
 
 Follow the [account mail deployment checks](authentication.md#account-mail-deployment-checks). Configure hosting cron for Laravel schedule:run to enforce session retention. Pending media deletion is retried from Trash.
 

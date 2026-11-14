@@ -25,11 +25,11 @@ Use locally bundled Geist Sans for interface text and Geist Mono for addresses, 
 
 ## Icons
 
-Use x-ui.icon with the kebab-case symbol names in the [local sprite](../public/icons/lucide.svg). The sprite contains selected unmodified Lucide geometry from lucide-static 1.72.0, under its [license](../resources/icons/lucide/LICENSE). Update symbols from upstream SVG sources and retain the license. The icon component uses a 24-unit view box and a two-unit stroke. Give interactive icon-only controls an accessible name on the control. No runtime CDN is needed.
+The current appearance and password components render inline SVG icons. A shared sprite and icon component are planned.
 
 ## Themes
 
-The [head bootstrap](../resources/views/components/layouts/theme-init.blade.php) reads the saved tempmail.theme preference and applies a valid explicit override before styles load. Alpine uses that same state. The preference is Light, Dark or System, while the effective theme reflects the explicit override or the OS setting. In System mode, CSS follows prefers-color-scheme and the store reflects OS changes when matchMedia supports change events. Unavailable storage preserves in-page selection and unavailable matchMedia falls back to light for the store.
+The [early initialization script](../public/appearance-init.js) reads the appearance key from localStorage before styles load. The shared Vite script updates the active control and tracks OS changes in System mode.
 
 The theme control displays only the preference icon and opens a vertical radio menu with icons, labels and a selected checkmark. Check cold reloads with a saved override opposite the OS, and verify navigation in both themes. See [Components](components.md) and [Accessibility](accessibility.md).
 

@@ -1,11 +1,7 @@
 # Installer
 
-Use the [installation state machine](../docs/installation.md). The database and administrator steps share the private gate, lease, and finalization lock.
+Follow the current flow and planned milestones in [Installation](../docs/installation.md). Keep Database Configuration first. Treat Database Engine and Database Host as separate inputs. MySQL and MariaDB use PDO MySQL with editable host, port, database name, username and password. Keep PostgreSQL and SQLite disabled until their full installer paths are verified.
 
-Require the private deployment gate on every installer request. Keep the direct peer, raw Host, HTTPS, and authorized production database endpoint checks intact. Local loopback permits an empty database password. Pin the engine and TCP target for production. SQLite uses the private fixed database file and verifies in memory. Protect CSRF, body limits, rate limiting, and host-only encrypted file sessions. Keep connection settings out of flashed input, logs, responses, and browser state.
+Require the private operator gate on every installer request. Preserve direct peer, raw Host, HTTPS, forwarded-header rejection and pinned endpoint checks. Allow localhost and 127.0.0.1 for direct loopback development. Keep connection tests bounded and read-only. Reject nonempty databases and engine mismatches, clear earlier verification before a retest, and never flash or log passwords.
 
-Finalization must recheck the verified lease and use the same exclusive lock. Preserve existing configuration, reconcile partial writes, record durable completion, and retire temporary state. Missing .env requires operator-controlled recovery when prior installation evidence exists or state is uncertain.
-
-The authorized installer records the first Super Admin's initial email as verified during account creation. Public registration and later email changes use signed email verification.
-
-Keep the web selector limited to verified engines. The editable host and port must match the deployment gate. Reuse x-appearance through the installer layout.
+Use x-appearance in the installer layout and x-ui.password-field for all password entry. For future finalization, preserve existing database data and application keys, verify the schema under an exclusive lock, and record the founder and completion durably. Keep configuration recovery under operator control.

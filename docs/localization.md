@@ -54,7 +54,7 @@ Run isolated browser QA for browser preferences, manual switching, direction, dr
 
 ## Multiscript typography
 
-Fonts is available from Admin Console and from the selected language. The locale registry determines direction independently of typography. An explicit body or heading assignment takes precedence over a saved writing-system default and the compatible catalog default. Reset removes the language assignment. System fallback remains readable while remote assets load. The catalog and mappings live in [typography configuration](../config/typography.php).
+Fonts is available from Admin Console and from the selected language. The locale registry determines direction independently of typography. An explicit body or heading assignment takes precedence over a saved writing-system default and the compatible catalog default. Reset removes the language assignment. System fallback remains readable while remote assets load. The typography configuration is planned for this checkout.
 
 Latin uses local Geist Sans with Inter available as an alternative. Arabic, Persian and Urdu default to Noto Sans Arabic. The Arabic catalog includes Naskh and Kufi, while Urdu offers Nastaliq. Hebrew uses its own Noto Sans family. Cyrillic and Greek use Noto Sans, while Indic, Thai and East Asian languages use their dedicated script or regional families. Geist Mono remains the technical font. Use LTR isolation for addresses and tokens in RTL previews.
 

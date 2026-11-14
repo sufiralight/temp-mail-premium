@@ -4,7 +4,7 @@ Installer and authentication feature tests exercise the shared password field ma
 
 Run the isolated authentication suite with php artisan test --filter=AuthenticationTest.
 
-The current [PHPUnit configuration](../phpunit.xml) uses SQLite in memory and array sessions and cache. The suite checks the root and health routes, local preview visibility, button rendering, field associations, media markup, and pagination. Use the local /_ui preview for browser interaction and responsive checks. The [CI workflow](../.github/workflows/checks.yml) builds assets and runs PHPUnit, Larastan, and Pint.
+The current [PHPUnit configuration](../phpunit.xml) uses SQLite in memory and array sessions and cache. The current suite covers the root route, installer gate and engine selection, and authentication. The remaining matrices are reference coverage.
 
 | Check | Command |
 | --- | --- |
